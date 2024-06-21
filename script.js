@@ -1,4 +1,3 @@
-//your code here
  const divs = document.querySelectorAll('.image-placeholder');
 
         divs.forEach((div) => {
