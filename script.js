@@ -1,8 +1,8 @@
- const divs = document.querySelectorAll('.image-placeholder');
+ const divs = document.querySelectorAll('.image');
 
         divs.forEach((div) => {
             div.addEventListener('dragstart', (e) => {
-                e.dataTransfer.setData('text/plain', div.id);
+                e.dataTransfer.setData('text', div.id);
             });
 
             div.addEventListener('dragover', (e) => {
@@ -11,7 +11,7 @@
 
             div.addEventListener('drop', (e) => {
                 e.preventDefault();
-                const sourceDivId = e.dataTransfer.getData('text/plain');
+                const sourceDivId = e.dataTransfer.getData('text');
                 const targetDivId = div.id;
 
                 // Swap background images between divs
