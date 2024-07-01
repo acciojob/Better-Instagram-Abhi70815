@@ -19,20 +19,23 @@ divs.forEach((div) => {
     const sourceDivId = e.dataTransfer.getData('text');
     const targetDivId = e.target.id; // Get the ID of the target element
 
-    // Swap background images between source and target divs
-    const sourceDiv = document.getElementById(sourceDivId);
-    const targetDiv = document.getElementById(targetDivId);
+    // Make sure that e.target is one of the div elements
+    if (divs.includes(e.target)) {
+      // Swap background images between source and target divs
+      const sourceDiv = document.getElementById(sourceDivId);
+      const targetDiv = e.target;
 
-    // Get computed styles
-    const sourceImage = window.getComputedStyle(sourceDiv).backgroundImage;
-    const targetImage = window.getComputedStyle(targetDiv).backgroundImage;
+      // Get computed styles
+      const sourceImage = window.getComputedStyle(sourceDiv).backgroundImage;
+      const targetImage = window.getComputedStyle(targetDiv).backgroundImage;
 
-    // Parse the backgroundImage strings to extract the image URLs
-    const sourceImageUrl = sourceImage.match(/url\("(.+)"\)/)[1];
-    const targetImageUrl = targetImage.match(/url\("(.+)"\)/)[1];
+      // Parse the backgroundImage strings to extract the image URLs
+      const sourceImageUrl = sourceImage.match(/url\("(.+)"\)/)[1];
+      const targetImageUrl = targetImage.match(/url\("(.+)"\)/)[1];
 
-    // Swap the images
-    sourceDiv.style.backgroundImage = `url("${targetImageUrl}")`;
-    targetDiv.style.backgroundImage = `url("${sourceImageUrl}")`;
+      // Swap the images
+      sourceDiv.style.backgroundImage = `url("${targetImageUrl}")`;
+      targetDiv.style.backgroundImage = `url("${sourceImageUrl}")`;
+    }
   });
 });
