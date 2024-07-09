@@ -20,7 +20,7 @@ divs.forEach((div) => {
     const targetDivId = e.target.id; // Get the ID of the target element
 
     // Make sure that e.target is one of the div elements
-    if (divs.includes(e.target)) {
+    if (Array.from(divs).some(div => div === e.target)) {
       // Swap background images between source and target divs
       const sourceDiv = document.getElementById(sourceDivId);
       const targetDiv = e.target;
