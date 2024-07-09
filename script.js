@@ -1,3 +1,4 @@
+window.onload=function(){
 const divs = document.querySelectorAll('.image');
 
 divs.forEach((div) => {
@@ -39,3 +40,4 @@ divs.forEach((div) => {
     }
   });
 });
+}
